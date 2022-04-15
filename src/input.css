@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body .chess {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
+}
+body .chess .chess-row {
+  display: flex;
+  flex: 1;
+}
+body .chess .chess-row .chess-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+body .chess .chess-row .chess-col img {
+  transform: scale(1.5, 1.5);
+}
+
+/*# sourceMappingURL=input.css.map */

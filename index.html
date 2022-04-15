@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="src/output.css" rel="stylesheet">
+</head>
+<body>
+<script>
+  const body = document.querySelector('body');
+
+  const chess = document.createElement('div');
+  chess.classList.add('chess');
+
+  body.appendChild(chess);
+
+  for (let i = 0; i < 8; i++) {
+    const row = document.createElement('div');
+    row.classList.add('chess-row');
+
+    for (let j = 0; j < 8; j++) {
+      const column = document.createElement('div');
+      column.classList.add('chess-col');
+      column.classList.add(i % 2 === 0 ? j % 2 === 0 ? 'bg-orange-300' : 'bg-red-900' : j % 2 !== 0 ? 'bg-orange-300' : 'bg-red-900');
+      if (i === 1 || i === 6) {
+        const img = document.createElement('img');
+        img.src = `src/assets/soldier_${i === 1 ? 'black': 'white'}.png`;
+        column.appendChild(img);
+      }
+      if (i === 0 || i === 7) {
+        if (j === 0 || j === 7) {
+          const img = document.createElement('img');
+          img.src = `src/assets/rook_${i === 0 ? 'black': 'white'}.png`;
+          column.appendChild(img);
+        } else if (j === 1 || j === 6) {
+          const img = document.createElement('img');
+          img.src = `src/assets/horse${i === 0 ? '-black': '_white'}.png`;
+          column.appendChild(img);
+        } else if (j === 2 || j === 5) {
+          const img = document.createElement('img');
+          img.src = `src/assets/diagnol${i === 0 ? '': '_white'}.png`;
+          column.appendChild(img);
+        } else if (j === 3) {
+          const img = document.createElement('img');
+          img.src = `src/assets/${i === 0 ? 'black-': 'white_'}queen.png`;
+          column.appendChild(img);
+        } else {
+          const img = document.createElement('img');
+          img.src = `src/assets/king_${i === 0 ? 'black': 'white'}.png`;
+          column.appendChild(img);
+        }
+      }
+      row.appendChild(column);
+    }
+
+    chess.appendChild(row);
+  }
+
+</script>
+</body>
+</html>
